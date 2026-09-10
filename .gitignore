@@ -1,0 +1,6 @@
+node_modules/
+*.log
+.DS_Store
+
+# NOTE: dist/ is intentionally committed so the game runs by opening index.html
+# directly (no build step required for players). Rebuild with ./build.sh.
