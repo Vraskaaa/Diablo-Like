@@ -1,0 +1,12 @@
+{
+  "name": "aetherfall",
+  "version": "0.1.0",
+  "description": "Aetherfall — a zero-dependency web ARPG (Diablo / PoE2-style) with a high-fantasy theme, multiple archetype classes, and a deterministic (non-RNG) crafting system.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -w -p tsconfig.json",
+    "clean": "rm -rf dist"
+  },
+  "license": "MIT"
+}
