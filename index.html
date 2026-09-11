@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Prevent the browser from serving a stale cached bundle after an update.
+       ES modules are cached aggressively by filename; without this, a `git pull`
+       that changes file *contents* but not *names* can keep running old JS. -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Aetherfall — A High Fantasy ARPG</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
@@ -12,6 +18,10 @@
     <!-- DOM overlay UI is rendered on top of the canvas -->
     <div id="ui-root"></div>
   </div>
-  <script type="module" src="./dist/main.js"></script>
+  <!-- The ?v query is a cache-buster: bump BUILD_VERSION in main.ts and this
+       import string together whenever you ship, so browsers fetch fresh code. -->
+  <script type="module">
+    import "./dist/main.js?v=2";
+  </script>
 </body>
 </html>
