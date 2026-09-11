@@ -384,7 +384,10 @@ export class UI {
             });
             left.appendChild(fabBtn);
             left.appendChild(el("div", undefined, { style: "height:14px" }));
-            left.innerHTML += `<h3 style="color:var(--gold-bright);margin:8px 0">Select an Item to Craft</h3>`;
+            const selectHeading = el("h3");
+            selectHeading.style.cssText = "color:var(--gold-bright);margin:8px 0";
+            selectHeading.textContent = "Select an Item to Craft";
+            left.appendChild(selectHeading);
             const itemList = el("div", "craft-list");
             const craftable = c.inventory;
             if (craftable.length === 0) {
@@ -444,7 +447,10 @@ export class UI {
         });
         right.appendChild(equipBtn);
         // ---- Add affix ----
-        right.innerHTML += `<div style="color:var(--gold);margin:6px 0 4px">Add an Affix</div>`;
+        const addHeading = el("div");
+        addHeading.style.cssText = "color:var(--gold);margin:6px 0 4px";
+        addHeading.textContent = "Add an Affix";
+        right.appendChild(addHeading);
         const addList = el("div", "craft-list");
         const options = addableAffixes(item);
         if (options.length === 0) {
@@ -498,7 +504,10 @@ export class UI {
         right.appendChild(addList);
         // ---- Modify existing affixes (upgrade / remove) ----
         if (item.affixes.length > 0) {
-            right.innerHTML += `<div style="color:var(--gold);margin:10px 0 4px">Modify Existing Affixes</div>`;
+            const modHeading = el("div");
+            modHeading.style.cssText = "color:var(--gold);margin:10px 0 4px";
+            modHeading.textContent = "Modify Existing Affixes";
+            right.appendChild(modHeading);
             const modList = el("div", "craft-list");
             for (const roll of [...item.affixes]) {
                 const affix = getAffix(roll.affixId);
